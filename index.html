@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <h2>CURP</h2>
+        <input type="text" pattern="[A-Z]{4}[0-9]{6}[A-Z]{7}[0-9]{1}" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <form action="#">
+        <h2>RFC</h2>
+        <input type="text" pattern="[A-Z]{4}[0-9]{6}[A-Z]{3}">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <form action="#">
+        <h2>EMAIL</h2>
+        <input type="text" pattern="">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <form action="#">
+        <h2>TELÉFONO</h2>
+        <input type="text" pattern="[0-9]{10}">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <form action="#">
+        <h2>NSS</h2>
+        <input type="text" pattern="[0-9]{11}">
+        <button type="submit">Enviar</button>
+    </form>
+    
+    <script>
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const input = form.querySelector('input');
+                if (input.checkValidity()) {
+                    input.insertAdjacentHTML('afterend', '<p>Valido</p>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

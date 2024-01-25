@@ -22,7 +22,7 @@
             const day = curpValue.substr(8, 2);
 
             if (parseInt(year) > 24) {
-                curpInput.setCustomValidity('El año no puede ser mayor a 12.');
+                curpInput.setCustomValidity('El año no puede ser mayor a 24.');
             } else if (parseInt(month) > 12) {
                 curpInput.setCustomValidity('El mes no puede ser mayor a 12.');
             } else if (parseInt(day) > 31) {
@@ -48,7 +48,7 @@
             const day = rfcValue.substr(8, 2);
 
             if (parseInt(year) > 24) {
-                rfcInput.setCustomValidity('El año no puede ser mayor a 12.');
+                rfcInput.setCustomValidity('El año no puede ser mayor a 24.');
             } else if (parseInt(month) > 12) {
                 rfcInput.setCustomValidity('El mes no puede ser mayor a 12.');
             } else if (parseInt(day) > 31) {

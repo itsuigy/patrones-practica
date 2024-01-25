@@ -3,24 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Práctica 2. Patterns</title>
 </head>
 <body>
+    <h1>Práctica 2. Patterns.</h1>
     <form action="#">
         <h2>CURP</h2>
-        <input type="text" pattern="[A-Z]{4}[0-9]{6}[A-Z]{7}[0-9]{1}" required>
+        <input type="text" class="curpInput" pattern="[A-Z]{4}[0-9]{6}[A-Z]{7}[0-9]{1}" maxlength="18" required>
         <button type="submit">Enviar</button>
     </form>
+
+    <script>
+        const curpInput = document.querySelector('.curpInput');
+        curpInput.addEventListener('input', () => {
+            const curpValue = curpInput.value;
+            const year = curpValue.substr(4, 2);
+            const month = curpValue.substr(6, 2);
+            const day = curpValue.substr(8, 2);
+
+            if (parseInt(year) > 24) {
+                curpInput.setCustomValidity('El año no puede ser mayor a 12.');
+            } else if (parseInt(month) > 12) {
+                curpInput.setCustomValidity('El mes no puede ser mayor a 12.');
+            } else if (parseInt(day) > 31) {
+                curpInput.setCustomValidity('El día no puede ser mayor a 31.');
+            } else {
+                curpInput.setCustomValidity('');
+            }
+        });
+    </script>
 
     <form action="#">
         <h2>RFC</h2>
-        <input type="text" pattern="[A-Z]{4}[0-9]{6}[A-Z]{3}">
+        <input type="text" class="rfcInput" pattern="[A-Z]{4}[0-9]{6}[A-Z]{3}" required>
         <button type="submit">Enviar</button>
     </form>
 
+    <script>
+        const rfcInput = document.querySelector('.rfcInput');
+        rfcInput.addEventListener('input', () => {
+            const rfcValue = rfcInput.value;
+            const year = rfcValue.substr(4, 2);
+            const month = rfcValue.substr(6, 2);
+            const day = rfcValue.substr(8, 2);
+
+            if (parseInt(year) > 24) {
+                rfcInput.setCustomValidity('El año no puede ser mayor a 12.');
+            } else if (parseInt(month) > 12) {
+                rfcInput.setCustomValidity('El mes no puede ser mayor a 12.');
+            } else if (parseInt(day) > 31) {
+                rfcInput.setCustomValidity('El día no puede ser mayor a 31.');
+            } else {
+                rfcInput.setCustomValidity('');
+            }
+        });
+    </script>
+
     <form action="#">
         <h2>EMAIL</h2>
-        <input type="text" pattern="">
+        <input type="text" pattern="[a-zA-Z0-9]+([.][a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}(\.[a-zA-Z]{2})?" required>
         <button type="submit">Enviar</button>
     </form>
 
